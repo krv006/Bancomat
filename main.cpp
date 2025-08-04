@@ -60,7 +60,7 @@ void smsXabar() {
     srand(time(0));
     kod = rand() % 900 + 100; // 100-999 oralig‘ida
 
-    cout << "📱 Telefon raqamingizni kiriting: ";
+    cout << "Telefon raqamingizni kiriting: ";
     cin >> tel;
 
     cout << "Tasdiqlash kodi: " << kod << " (tekshirish uchun)" << endl;
