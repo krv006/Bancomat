@@ -89,3 +89,9 @@ int main() {
     return 0;
 }
 
+
+/*
+cout << "\nDavom etish uchun istalgan tugmani bosing...";
+cin.ignore();
+cin.get(); // kutish
+ */
