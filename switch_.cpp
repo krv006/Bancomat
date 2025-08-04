@@ -5,6 +5,16 @@
 
 using namespace std;
 
+/// Funksiya definition:
+bool check() {
+    int tanlov;
+    cout << "Yana amal bajarishni xoxlaysizmi ?" << endl;
+    cout << "1 - Ha, 2 - Yo'q" << endl;
+    cin >> tanlov;
+    system("cls");
+    return tanlov == 1;
+}
+
 int main() {
 
     cout << endl;
@@ -44,9 +54,8 @@ int main() {
                         case 1:
                             cout << "Sizni Hisobingiz-> " << balans << " so'm pul bor" << endl;
                             cout << "Yana amal bajarishni xoxlaysizmi ?" << endl;
-                            cout << "1 - Ha, 2 - Yo'q" << endl;
-                            cin >> tanlov;
-                            if (tanlov == 1) {
+
+                            if (check()) {
                                 system("cls");
                                 goto back1;
                             } else {
@@ -72,18 +81,13 @@ int main() {
                                 cout << "1 - Ha, 2 - Yo'q" << endl;
                                 cin >> tanlov;
 
-                                if (tanlov == 1) {
-
+                                if (check()) {
                                     system("cls");
                                     goto back1;
-
                                 } else {
-
                                     cout << "Bizning xizmatimizdan foydalangzningiz uchun minnadormiz." << endl;
                                     cout << "Plastik kartangizni olishni unutmang !!!" << endl;
-
                                     return 0;
-
                                 }
 
                             } else cout << "Xatolik: Yetarli mablag' mavjud emas yoki noto'g'ri summa." << endl;
@@ -108,10 +112,7 @@ int main() {
                                 system("cls");
                             }
 
-                            cout << "Yana amal bajarishni xoxlaysizmi ?" << endl;
-                            cout << "1 - Ha, 2 - Yo'q" << endl;
-                            cin >> tanlov;
-                            if (tanlov == 1) {
+                            if (check()) {
                                 system("cls");
                                 goto back1;
                             } else {
@@ -135,10 +136,7 @@ int main() {
 
                                 system("cls");
 
-                                cout << "Yana amal bajarishni xoxlaysizmi ?" << endl;
-                                cout << "1 - Ha, 2 - Yo'q" << endl;
-                                cin >> tanlov;
-                                if (tanlov == 1) {
+                                if (check()) {
                                     system("cls");
                                     goto back1;
                                 } else {

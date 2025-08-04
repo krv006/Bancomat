@@ -4,6 +4,17 @@
 
 using namespace std;
 
+/// Funksiya definition:
+bool check() {
+    int tanlov;
+    cout << "Yana amal bajarishni xoxlaysizmi ?" << endl;
+    cout << "1 - Ha, 2 - Yo'q" << endl;
+    cin >> tanlov;
+    system("cls");
+    return tanlov == 1;
+}
+
+
 int main() {
     cout << endl;
 
@@ -20,6 +31,8 @@ int main() {
     cout << "Tilni tanlang: ";
     cin >> til;
 
+    back1:
+
     while (true) {
         switch (til) {
             case 1:
@@ -30,8 +43,8 @@ int main() {
                 if (parol == parolConst) {
 
 
-                    cout << menuFront;
                     cout << "Tanlang: ";
+                    cout << menuFront;
                     cin >> menu;
 
                     switch (menu) {
@@ -51,7 +64,15 @@ int main() {
 
                             } else cout << "Xatolik: Yetarli mablag' mavjud emas yoki noto'g'ri summa." << endl;
 
-                            break;
+                            if (check()) {
+                                system("cls");
+                                goto back1;
+                            } else {
+                                cout << "Bizning xizmatimizdan foydalangzningiz uchun minnadormiz." << endl;
+                                cout << "Plastik kartangizni olishni unutmang !!!" << endl;
+                                return 0;
+                            }
+
                         case 3:
                             cout << "SMS xabar ulash funksiyasi hali mavjud emas." << endl;
                             break;
