@@ -6,13 +6,16 @@
 using namespace std;
 
 int main() {
+
     cout << endl;
 
-    int til, parol, menu, tanlov;
+    int til, menu, tanlov;
+    int parol, newpassword;
+    int balans = 1000000, smsXabarnomaTelefon, chekTasiqlashKodi, randSms;
+    int parolConst = 1234;
+
 
     float amount;
-    int balans = 1000000, smsXabarnomaTelefon, chekTasiqlashKodi, randSms;
-    const int parolConst = 1234;
 
     string check_til = " 1. Uzbek tili \n 2. Rus tili \n 3. Ingiliz tili";
     string menuFront = " 1 <= Balansni tekshirish \n 2 <= Naqd pul olish \n 3 <= SMS xabar ulash \n 4 <= Parolni o'zgartirish \n 5 <= Ortga qaytish \n ";
@@ -20,6 +23,7 @@ int main() {
     cout << check_til << endl << endl;
     cout << "Tilni tanlang: ";
     cin >> til;
+    back:
 
     while (true) {
         switch (til) {
@@ -29,7 +33,6 @@ int main() {
                 cin >> parol;
 
                 if (parol == parolConst) {
-                    cout << menuFront;
 
                     back1:
 
@@ -40,6 +43,19 @@ int main() {
                     switch (menu) {
                         case 1:
                             cout << "Sizni Hisobingiz-> " << balans << " so'm pul bor" << endl;
+                            cout << "Yana amal bajarishni xoxlaysizmi ?" << endl;
+                            cout << "1 - Ha, 2 - Yo'q" << endl;
+                            cin >> tanlov;
+                            if (tanlov == 1) {
+                                system("cls");
+                                goto back1;
+                            } else {
+                                cout << "Bizning xizmatimizdan foydalangzningiz uchun minnadormiz." << endl;
+                                cout << "Plastik kartangizni olishni unutmang !!!" << endl;
+                                return 0;
+                            }
+
+
                             break;
                         case 2:
                             cout << "Pulning miqdorini kiriting: ";
@@ -49,7 +65,7 @@ int main() {
                                 cout << "Sizdan yechiladigan pul miqdori: " << amount + (amount / 100) << endl;
 
                                 balans = balans - (amount + (amount / 100));
-                                Sleep(1000);
+                                Sleep(5000);
                                 cout << "Marhamat pullaringizni oling" << endl;
 
                                 cout << "Yana amal bajarishni xoxlaysizmi ?" << endl;
@@ -88,15 +104,54 @@ int main() {
                             if (randSms == chekTasiqlashKodi) {
                                 cout << "Ushbu telefon raqam muvaffaqiyatli SMS xabarga  ulandi " << endl;
 
-                                Sleep(1000);
+                                Sleep(5000);
                                 system("cls");
+                            }
+
+                            cout << "Yana amal bajarishni xoxlaysizmi ?" << endl;
+                            cout << "1 - Ha, 2 - Yo'q" << endl;
+                            cin >> tanlov;
+                            if (tanlov == 1) {
+                                system("cls");
+                                goto back1;
+                            } else {
+                                cout << "Bizning xizmatimizdan foydalangzningiz uchun minnadormiz." << endl;
+                                cout << "Plastik kartangizni olishni unutmang !!!" << endl;
+                                return 0;
                             }
 
                             break;
                         case 4:
+                            cout << "Eski parolizi kiriting: ";
+                            cin >> parol;
+                            if (parol == parolConst) {
+                                cout << "Yangi parol kiriting: ";
+                                cin >> newpassword;
+                                parolConst = newpassword;
+
+                                Sleep(5000);
+
+                                cout << "Paroliz ozgartirildi" << endl;
+
+                                system("cls");
+
+                                cout << "Yana amal bajarishni xoxlaysizmi ?" << endl;
+                                cout << "1 - Ha, 2 - Yo'q" << endl;
+                                cin >> tanlov;
+                                if (tanlov == 1) {
+                                    system("cls");
+                                    goto back1;
+                                } else {
+                                    cout << "Bizning xizmatimizdan foydalangzningiz uchun minnadormiz." << endl;
+                                    cout << "Plastik kartangizni olishni unutmang !!!" << endl;
+                                    return 0;
+                                }
+
+                            } else cout << "Parollar bir birga mos emas !!! " << endl;
                             cout << "Parolni o'zgartirish funksiyasi hali mavjud emas." << endl;
                             break;
                         case 5:
+                            goto back;
                             cout << "Ortga qaytdingiz. Dastur yakunlandi." << endl;
                             return 0;
                         default:
