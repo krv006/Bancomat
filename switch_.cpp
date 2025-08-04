@@ -1,4 +1,5 @@
 #include <iostream>
+#include<conio.h>
 #include <windows.h>
 #include <unistd.h>
 
@@ -7,10 +8,10 @@ using namespace std;
 int main() {
     cout << endl;
 
-    int til, parol, menu;
+    int til, parol, menu, tanlov;
 
     float amount;
-    int balans = 1000000;
+    int balans = 1000000, smsXabarnomaTelefon, chekTasiqlashKodi, randSms;
     const int parolConst = 1234;
 
     string check_til = " 1. Uzbek tili \n 2. Rus tili \n 3. Ingiliz tili";
@@ -28,7 +29,9 @@ int main() {
                 cin >> parol;
 
                 if (parol == parolConst) {
+                    cout << menuFront;
 
+                    back1:
 
                     cout << menuFront;
                     cout << "Tanlang: ";
@@ -49,11 +52,46 @@ int main() {
                                 Sleep(1000);
                                 cout << "Marhamat pullaringizni oling" << endl;
 
+                                cout << "Yana amal bajarishni xoxlaysizmi ?" << endl;
+                                cout << "1 - Ha, 2 - Yo'q" << endl;
+                                cin >> tanlov;
+
+                                if (tanlov == 1) {
+
+                                    system("cls");
+                                    goto back1;
+
+                                } else {
+
+                                    cout << "Bizning xizmatimizdan foydalangzningiz uchun minnadormiz." << endl;
+                                    cout << "Plastik kartangizni olishni unutmang !!!" << endl;
+
+                                    return 0;
+
+                                }
+
                             } else cout << "Xatolik: Yetarli mablag' mavjud emas yoki noto'g'ri summa." << endl;
 
                             break;
                         case 3:
-                            cout << "SMS xabar ulash funksiyasi hali mavjud emas." << endl;
+                            cout << "SMS xabari ulanadigan telefon raqamini kiriting :";
+                            cin >> smsXabarnomaTelefon;
+
+                            randSms = rand() % 100 + 999;
+                            cout << "Sizga tasdiqlash kodi keldi eslab qoling :" << randSms << endl;
+
+                            Sleep(1000);
+
+                            cout << "Sizga kelgan tasdiqlash kodini kiriting : " << endl;
+                            cin >> chekTasiqlashKodi;
+
+                            if (randSms == chekTasiqlashKodi) {
+                                cout << "Ushbu telefon raqam muvaffaqiyatli SMS xabarga  ulandi " << endl;
+
+                                Sleep(1000);
+                                system("cls");
+                            }
+
                             break;
                         case 4:
                             cout << "Parolni o'zgartirish funksiyasi hali mavjud emas." << endl;
