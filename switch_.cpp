@@ -5,13 +5,21 @@
 
 using namespace std;
 
+
+void clear() {
+    Sleep(5000);
+    system("cls");
+}
+
 /// Funksiya definition:
 bool check() {
     int tanlov;
     cout << "Yana amal bajarishni xoxlaysizmi ?" << endl;
     cout << "1 - Ha, 2 - Yo'q" << endl;
     cin >> tanlov;
+
     system("cls");
+
     return tanlov == 1;
 }
 
@@ -74,7 +82,9 @@ int main() {
                                 cout << "Sizdan yechiladigan pul miqdori: " << amount + (amount / 100) << endl;
 
                                 balans = balans - (amount + (amount / 100));
-                                Sleep(5000);
+
+                                clear();
+
                                 cout << "Marhamat pullaringizni oling" << endl;
 
                                 cout << "Yana amal bajarishni xoxlaysizmi ?" << endl;
@@ -100,7 +110,7 @@ int main() {
                             randSms = rand() % 100 + 999;
                             cout << "Sizga tasdiqlash kodi keldi eslab qoling :" << randSms << endl;
 
-                            Sleep(1000);
+                            clear();
 
                             cout << "Sizga kelgan tasdiqlash kodini kiriting : " << endl;
                             cin >> chekTasiqlashKodi;
@@ -108,8 +118,7 @@ int main() {
                             if (randSms == chekTasiqlashKodi) {
                                 cout << "Ushbu telefon raqam muvaffaqiyatli SMS xabarga  ulandi " << endl;
 
-                                Sleep(5000);
-                                system("cls");
+                                clear();
                             }
 
                             if (check()) {
@@ -130,11 +139,11 @@ int main() {
                                 cin >> newpassword;
                                 parolConst = newpassword;
 
-                                Sleep(5000);
+                                clear();
 
                                 cout << "Paroliz ozgartirildi" << endl;
 
-                                system("cls");
+                                clear();
 
                                 if (check()) {
                                     system("cls");
@@ -149,9 +158,9 @@ int main() {
                             cout << "Parolni o'zgartirish funksiyasi hali mavjud emas." << endl;
                             break;
                         case 5:
-                            goto back;
                             cout << "Ortga qaytdingiz. Dastur yakunlandi." << endl;
                             return 0;
+                            goto back;
                         default:
                             cout << "Noto'g'ri tanlov." << endl;
                             break;
